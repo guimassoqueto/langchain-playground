@@ -1,10 +1,10 @@
 # Runtime
-langchain==1.4.3
-langchain-anthropic==1.7.5
-python-dotenv==1.2.4
+langchain
+langchain-anthropic
+python-dotenv
 
 # Tooling
-commitizen==4.19.2
-pip-review==1.3.0
-pre-commit==4.6.2
-ruff==0.16.10
+commitizen
+pip-review
+pre-commit
+ruff
