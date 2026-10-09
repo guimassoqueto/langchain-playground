@@ -1,12 +1,10 @@
 [tool.ruff]
 line-length = 120
-target-version = "py313"
-# Markdown is documentation, not source. ruff >= 0.14 formats the Python code
-# blocks inside .md files, which rewrites hand-aligned snippets in the docs and
-# made `make lint-check` fail on main. `ruff check` never looked at .md; only
-# the formatter started to. extend-exclude (not exclude) so ruff's default
-# exclusions stay in place.
-extend-exclude = ["*.md"]
+target-version = "py314"
+# Markdown is documentation, not source: ruff >= 0.14 formats the Python code
+# blocks inside .md files, which rewrites hand-aligned snippets in the docs.
+# extend-exclude (not exclude) keeps ruff's own default exclusions in place.
+extend-exclude = ["*.md", "devtools"]
 
 [tool.ruff.lint]
 select = [
@@ -17,10 +15,6 @@ select = [
     "B",      # flake8-bugbear
     "C4",     # flake8-comprehensions
     "UP",     # pyupgrade
-]
-exclude = [
-    ".venv",
-    "devtools",
 ]
 
 [tool.ruff.format]

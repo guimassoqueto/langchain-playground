@@ -1,4 +1,14 @@
 repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+      - id: check-yaml
+      - id: check-toml
+      - id: check-added-large-files
+      - id: detect-private-key
+
   - repo: https://github.com/astral-sh/ruff-pre-commit
     rev: v0.16.10
     hooks:
@@ -6,3 +16,11 @@ repos:
         args: [--fix, --config, devtools/pyproject.toml]
       - id: ruff-format
         args: [--config, devtools/pyproject.toml]
+
+  - repo: https://github.com/commitizen-tools/commitizen
+    rev: v4.19.2
+    hooks:
+      - id: commitizen
+        entry: cz --config devtools/pyproject.toml check
+        args: [--allow-abort, --commit-msg-file]
+        stages: [commit-msg]
